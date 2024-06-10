@@ -14,9 +14,14 @@
 3. Go to http://0.0.0.0:3001/
 
 ### Dependencies:
-pandas
-numpy
-sqlalchemy
-nltk
-sklearn
-pickle
+pandas == 2.2.2
+
+numpy == 1.26
+
+sqlalchemy == 2.0.30
+
+nltk == 3.8.1
+
+sklearn == 1.5.0
+
+pickle == 3.12.4
