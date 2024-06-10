@@ -44,7 +44,7 @@ def clean_data(df):
 
 def save_data(df, database_filename):
     engine = create_engine(r'sqlite:///'+database_filename)
-    df.to_sql('DisasterMessages', engine, index=False)
+    df.to_sql(database_filename, engine, index=False)
 
 
 def main():
