@@ -78,8 +78,8 @@ def build_model(grid_search = False):
     if grid_search == True:
         print('Searching for best parameters...')
         parameters = {
-            'clf__estimator__n_estimators': [5, 10, 20]
-            , 'clf__estimator__min_samples_split': [2, 3, 4]
+            'clf__estimator__n_estimators': [5, 10]
+            , 'clf__estimator__min_samples_split': [2, 3]
         }
         pipeline = GridSearchCV(pipeline, param_grid = parameters)
     return pipeline
@@ -96,7 +96,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
         None, a report is printed
     """
     y_pred = model.predict(X_test)
-    report = classification_report(Y_test, y_pred, target_names=category_names, zero_divisions = 1)
+    report = classification_report(Y_test, y_pred, target_names=category_names)
     print(report)
 
 
