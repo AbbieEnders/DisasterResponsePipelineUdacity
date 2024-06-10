@@ -25,3 +25,11 @@ nltk == 3.8.1
 sklearn == 1.5.0
 
 pickle == 3.12.4
+
+### Acknowledgements:
+
+Udacity Lectures (udacity.com)
+
+Thanks to Appen for supplying the data.
+
+License: MIT License
