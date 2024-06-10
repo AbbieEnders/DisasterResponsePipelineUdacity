@@ -40,6 +40,7 @@ def clean_data(df):
     # concatenate the original dataframe with the new `categories` dataframe
     df = df.join(categories)
     df = df.drop_duplicates() # drop duplicates
+    return df
 
 
 def save_data(df, database_filename):
