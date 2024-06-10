@@ -40,6 +40,9 @@ def clean_data(df):
     # concatenate the original dataframe with the new `categories` dataframe
     df = df.join(categories)
     df = df.drop_duplicates() # drop duplicates
+
+    # replace values of 2 so that only 0 or 1 are options
+    df.replace(2, 1, inplace = True)
     return df
 
 

@@ -71,10 +71,15 @@ def tokenize(text):
 def build_model(grid_search = False):
     """ build pipeline """
     pipeline = Pipeline([
-        ('vect', CountVectorizer(tokenizer = tokenize)),
-        ('tfidf', TfidfTransformer()),
-        ('clf', MultiOutputClassifier(RandomForestClassifier())),
+        ('features', FeatureUnion([
+            ('text_pipeline', Pipeline([
+                ('vect', CountVectorizer(tokenizer = tokenize)),
+                ('tfidf', TfidfTransformer())
+            ]))
+        ])),
+        ('clf', MultiOutputClassifier(RandomForestClassifier()))
     ]) 
+
     if grid_search == True:
         print('Searching for best parameters...')
         parameters = {
@@ -82,6 +87,7 @@ def build_model(grid_search = False):
             , 'clf__estimator__min_samples_split': [2, 3]
         }
         pipeline = GridSearchCV(pipeline, param_grid = parameters)
+
     return pipeline
 
 
