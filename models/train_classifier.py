@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 import nltk
 nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('omw-1.4')
 from nltk import pos_tag, ne_chunk
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -27,11 +28,13 @@ def load_data(database_filepath):
     - X = model inputs
     - y = output to predict 
     """
-    engine = create_engine(r'sqlite:///'+database_filepath)
-    df = pd.read_sql(database_filepath, engine)
+    table_name = 'DisasterResponseClean'
+    engine = create_engine('sqlite:///{}'.format(database_filepath))
+    df = pd.read_sql(table_name, engine)
     X = df.message.values
     y = df.iloc[:,4:].values
-    return X, y
+    category_names = df.columns.tolist()
+    return X, y, category_names
 
 
 def tokenize(text):
@@ -65,13 +68,21 @@ def tokenize(text):
     return clean_tokens
 
 
-def build_model():
+def build_model(grid_search = False):
     """ build pipeline """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer = tokenize)),
         ('tfidf', TfidfTransformer()),
         ('clf', MultiOutputClassifier(RandomForestClassifier())),
     ]) 
+    if grid_search == True:
+        print('Searching for best parameters...')
+        parameters = {
+            'clf__estimator__n_estimators': [5, 10, 20]
+            , 'clf__estimator__min_samples_split': [2, 3, 4]
+        }
+        pipeline = GridSearchCV(pipeline, param_grid = parameters)
+    return pipeline
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
