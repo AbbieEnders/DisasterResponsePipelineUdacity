@@ -63,8 +63,45 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+        {
+            'data': [
+                Bar(
+                    x=related_names,
+                    y=related_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Relevant Messages',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Relevant Messages [0 = not a relevant message, 1 = relevant message]"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=direct_names,
+                    y=direct_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Direct Report Messages',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Direct Reports [0 = not a direct report, 1 = direct report]"
+                }
+            }
         }
     ]
+    
     
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
