@@ -19,6 +19,20 @@ In the event of a disaster the model can interpret messages recieved from source
 
 3. Go to http://0.0.0.0:3001/
 
+### File Structure & Repo Directory:
+app/
+run.py - runs the web app
+../templates/
+../go.html - formatting for the web app
+../master.html - formatting for the web app
+data/
+../DisasterResponse.db - database with transformed inputs
+../
+models/
+LICENSE - MIT License info
+README.md - details about the repo
+
+
 ### Dependencies:
 pandas == 2.2.2
 
