@@ -1,5 +1,8 @@
 # Disaster Response Pipeline Project
 
+## Project Overview:
+A NLP machine learning model classifies messages to determine their relevance to disasters based on labeled data from Appen.
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
