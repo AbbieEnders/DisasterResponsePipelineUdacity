@@ -3,6 +3,9 @@
 ## Project Overview:
 A NLP machine learning model classifies messages to determine their relevance to disasters based on labeled data from Appen.
 
+### Importance:
+In the event of a disaster the model can interpret messages recieved from sources to determine if they are relevant to the disaster and what categories they fall under! This saves time and valuable resources and gets people help faster in the event of an emergency.
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
