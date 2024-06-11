@@ -30,23 +30,23 @@ run.py - runs the web app
 
 ../templates/
 
-../go.html - formatting for the web app
+go.html - formatting for the web app
 
-../master.html - formatting for the web app
+master.html - formatting for the web app
 
 data/
 
-../DisasterResponse.db - database with transformed inputs
+DisasterResponse.db - database with transformed inputs
 
-../disaster_categories.csv - input data
+disaster_categories.csv - input data
 
-../disaster_messaages.csv - input data
+disaster_messaages.csv - input data
 
-../process_data.py - ETL file for data
+process_data.py - ETL file for data
 
 models/
 
-../train_classifier.py - train and save NLP ML classifer 
+train_classifier.py - train and save NLP ML classifer 
 
 
 
