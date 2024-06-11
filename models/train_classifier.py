@@ -32,8 +32,8 @@ def load_data(database_filepath):
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     df = pd.read_sql(table_name, engine)
     X = df.message.values
-    y = df.iloc[:,4:].values
-    category_names = df.columns.tolist()
+    y = df.drop(columns = ['id','genre', 'message', 'original'])
+    category_names = y.columns.tolist()
     return X, y, category_names
 
 
