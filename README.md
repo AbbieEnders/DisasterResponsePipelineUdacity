@@ -20,17 +20,34 @@ In the event of a disaster the model can interpret messages recieved from source
 3. Go to http://0.0.0.0:3001/
 
 ### File Structure & Repo Directory:
-app/
-run.py - runs the web app
-../templates/
-../go.html - formatting for the web app
-../master.html - formatting for the web app
-data/
-../DisasterResponse.db - database with transformed inputs
-../
-models/
 LICENSE - MIT License info
+
 README.md - details about the repo
+
+app/
+
+run.py - runs the web app
+
+../templates/
+
+../go.html - formatting for the web app
+
+../master.html - formatting for the web app
+
+data/
+
+../DisasterResponse.db - database with transformed inputs
+
+../disaster_categories.csv - input data
+
+../disaster_messaages.csv - input data
+
+../process_data.py - ETL file for data
+
+models/
+
+../train_classifier.py - train and save NLP ML classifer 
+
 
 
 ### Dependencies:
